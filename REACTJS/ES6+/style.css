@@ -1,0 +1,15 @@
+div.header{
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+div.left{
+    float: left;
+    width: 30%;
+    height: 500px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border: #fff 1px solid;
+}

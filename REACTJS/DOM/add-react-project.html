@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactjs</title>
+    <!-- Add React to Website -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+</head>
+<body>
+    <h1>Add React to Website</h1>
+    <!--
+    1.Github, NPMSJS, UNPKG
+    1.1 Github nơi lưu trữ mã nguồn
+    1.2 NPMJS nơi lưu trữ sản phẩm được tạo ra từ mã nguồn
+    1.3 UNPKG 
+       + cdn (content delivery network) 
+       + unpkg.com/:package@:version/:file
+          --unpkg.com/react
+          'use strict';
+
+          if (process.env.NODE_ENV === 'production') {
+            module.exports = require('./cjs/react.production.min.js');// code production
+          } else {
+            module.exports = require('./cjs/react.development.js');// code development
+          }
+
+
+    2.Add React to Website
+    3.Official docs
+    -->
+    <script>
+        console.log(React.version);
+    </script>
+    
+</body>
+</html>
