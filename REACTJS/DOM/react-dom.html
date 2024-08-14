@@ -4,25 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Dom</title>
-    <!-- Đứng trước -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <!-- Đứng sau -->
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+   
 </head>
 </head>
 <body>
     <!--
-    1. Tại sao phải sử dụng React-DOM?
+    1. Tại sao phải sử dụng React-DOM/ React-Native?
     => Render được React Element ra Trình duyệt
     => React Dom là gì ? 
       => Là một thư viện, là cầu nối giữa React và DOM
     2. Tại sao lại tách React-DOM ra ?
+    => Để có thể sử dụng React trên nhiều nền tảng khác nhau
     3. Render UI
+    <div class="post-item">
+      <h2 title="Học ReactJS tại F8">Học ReactJS</h2>
+      <p> Học ReactJS từ cơ bản tới nâng cao</p>
+    </div>
+
+
 
     React-Native ->IOS, Android
     Native (bản địa)
     => Có thể sử dụng React-Native để tạo ứng dụng trên điện thoại
 
     -->
+    <div id="root"></div>
+
+    <script>
+      //React 
+      const postItem = React.createElement(
+        'div',//The div
+        {
+          className: 'post-item'
+        },
+        React.createElement(
+          'h2',
+          {
+            title: 'Học ReactJS tại F8'
+          },
+          'Học ReactJS'
+        ),
+        React.createElement(
+          'p',
+          {},
+          'Học ReactJS từ cơ bản tới nâng cao'
+        )
+      )
+
+      //console.log(postItem);
+
+      //get root element
+      const root = document.getElementById('root');
+
+      // ReactDOM -> render UI
+      ReactDOM.render(postItem, root);
+
+    </script>
 </body>
 </html>
