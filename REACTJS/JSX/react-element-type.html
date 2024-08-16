@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+     <!--
+    Hooks
+
+    Khi nào dùng function component, khi nào dùng class component
+
+    1. React element types: String, function/class
+       - Wrapper
+            -Header -> Header component
+            -Content -> Content component
+            -Footer -> Footer component
+    2. Biểu diễn đơn giản với JSX
+    -->
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+        function Header(){
+            return (
+                <div className="header">New Header</div>
+            )
+        }
+
+        //Function component
+        // function Content(){
+        //     return (
+        //         <div className="content">New Content</div>
+        //     )
+        // }
+
+
+        //Class component
+        class Content extends React.Component{
+            render(){
+                return (
+                    <div className="content">My New Content </div>
+                )
+            }
+        }
+
+        function Footer(){
+            return (
+                <div className="footer">New Footer</div>
+            )
+        }
+
+        const app = (
+        <div className="wrapper">
+            <Header />
+            <Content />
+            <Footer />
+        </div>
+       )
+
+       console.log(app);
+
+       ReactDOM.render(app, document.getElementById('app'));
+    </script>
+
+    
+</body>
+</html>

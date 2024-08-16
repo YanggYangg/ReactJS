@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- exercise
+    <div className="post-item">
+                    <img src="https://tuhoclaptrinh.edu.vn/upload/post/2023/03/29/gioi-thieu-ve-ngon-ngu-c-va-cong-nghe-net-20230329095830-120133.jpg" alt=""></img>
+                    <h2 className="post-title">C#(.NET) - Tương tác với file excel </h2>
+                    <p className="post-desc">Bạn có kiến thức ngôn ngữ C#</p>
+                    <p className="post-published">Một ngày trước - 5 phút đọc</p>
+                </div> 
+    
+    -->
+     <div id="app"></div>
+
+     //PostItem
+
+
+     <script type="text/babel">
+
+         function PostItem(){
+             return (
+                 <div className="post-item">
+                     <img src="https://tuhoclaptrinh.edu.vn/upload/post/2023/03/29/gioi-thieu-ve-ngon-ngu-c-va-cong-nghe-net-20230329095830-120133.jpg" alt=""></img>
+                     <h2 className="post-title">C#(.NET) - Tương tác với file excel </h2>
+                     <p className="post-desc">Bạn có kiến thức ngôn ngữ C#</p>
+                     <p className="post-published">Một ngày trước - 5 phút đọc</p>
+                 </div>
+             )
+         }
+
+        const app = (
+            <div className="posts-list">
+                <PostItem />
+                <PostItem />
+                <PostItem />
+            </div>
+        )
+
+        ReactDOM.render(app, document.getElementById('app'));
+     </script>
+    
+</body>
+</html>

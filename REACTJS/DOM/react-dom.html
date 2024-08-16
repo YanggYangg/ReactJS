@@ -58,10 +58,15 @@
       //console.log(postItem);
 
       //get root element
-      const root = document.getElementById('root');
+      const container = document.getElementById('root');
 
+      //React@17
       // ReactDOM -> render UI
-      ReactDOM.render(postItem, root);
+      //ReactDOM.render(postItem, root);
+
+      //React@18
+      const root = ReactDOM.createRoot(container);
+      root.render(postItem);
 
     </script>
 </body>

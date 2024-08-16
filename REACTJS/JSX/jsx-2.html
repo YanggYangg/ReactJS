@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+    Chưa bài tập: Render list khóa học 
+
+    * Câu hỏi thường gặp:
+       - Tại sao khi code thuần dùng map phải join()...
+       - Gặp lỗi khi render từ mảng (prop "key")
+       - Không render được 2 element cùng lúc
+    -->
+        <div id="root"></div>
+    
+        <script type="text/babel">
+            // const reactCourse = 'ReactJS F8';
+            // const courses = [
+            //     {name : 'HTML, CSS'},
+            //     {name : 'Responsive Web Design'},
+            //     {name : 'ReactJS'},
+            // ]
+            // const ul = 
+            //     <ul>
+            //         {courses.map((course, index) => (
+            //             <li key={index}>{course.name}</li>
+            //        ))}
+            //     </ul>
+
+            // const jsx = (
+            //     <ul>
+            //         {courses.map(courses =>
+            //             <li>{courses.name}</li>
+            //         )}
+            //     </ul>
+            // )
+
+            //Render danh sách của ReactJS
+            // const jsx = (
+            //     <ul>
+            //         {courses.map((courses, index) =>
+            //             <li key={index}>{courses.name}</li>
+            //         )}
+            //     </ul>
+            // )
+               
+            const jsx = (
+                <React.Fragment>
+                    <h1>Heading1</h1>
+                    <h2>Heading2</h2>
+                </React.Fragment>
+            )
+
+            ReactDOM.render(jsx, document.getElementById('root'));
+            //ReactDOM.render(ul, document.getElementById('root'));
+
+            // const root = ReactDOM.createRoot(document.getElementById('root'));
+            // root.render(jsx);
+        </script>
+    
+</body>
+</html>
