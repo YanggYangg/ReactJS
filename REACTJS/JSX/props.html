@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Props</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+    - React elements
+        - Sử dụng props giống như với attributes của thẻ HTML
+        - 2 props class, for => className, htmlFor
+        - Phải tuân thủ theo quy ước có sẵn
+
+    - React components
+        - Sử dụng props giống như đối số cho Component
+        - Tự do đặt tên props
+            - Đặt theo camelCase
+            - *Có thể bao gồm dấu gạch ngang 
+    
+    - Chú ý:
+        - Props "key" là props đặc biệt
+        - Props cơ bản là đối sổ của Component
+            => Props có thể là bất cứ kiểu dữ liệu gì 
+        - Sử dụng destructuring
+    -->
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+        //PostItem.js
+        function PostItem(props){
+             return (
+                 <div className="post-item">
+                     <img src={props.image} 
+                     alt={props.title} />
+                     <h2 className="post-title">{props.title}</h2>
+                     <p className="post-desc">{props.description}</p>
+                     <p className="post-published">{props.publishedAt}</p>
+                 </div>
+             )
+         }
+
+
+
+
+        //App.js => React COMPONENT
+        function App(){
+           // console.log(<PostItem title="Title test" />);
+            return(
+                <div id="wrapper">
+                  <PostItem 
+                    title="C#(.NET) - Tương tác với file excel"
+                    image="https://tuhoclaptrinh.edu.vn/upload/post/2023/03/29/gioi-thieu-ve-ngon-ngu-c-va-cong-nghe-net-20230329095830-120133.jpg"
+                    description="Bạn có kiến thức ngôn ngữ C#"
+                    publishedAt="Một ngày trước - 5 phút đọc"
+                  />
+
+                </div>
+            )
+        }
+
+        //index.js
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+
+    
+</body>
+</html>

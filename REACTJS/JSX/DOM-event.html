@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-events</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+    Làm việc với JSX
+
+    //Phần I
+    - Xử lý DOM events
+    - Component do chúng ta định nghĩa phải viết 
+    in hoa kí tự đầu
+    - Chọn component trong 1 object
+    - Boolean, null & undefined sẽ không được render
+    - Kết hợp toán tử logic để render theo điều kiện
+
+    //Phàn II
+    - Props trong JSX
+       - <YourComponent 
+            propName1="String literals"
+            propName2={expression}
+        />
+        - Props default to "true"
+        - Spread/Rest props
+        - Children props
+           - <YourComponent>String literals</YourComponent>
+           - <YourComponent>{expression}</YourComponent>
+        - Render props
+    -->
+    
+    <div id="root"></div>
+
+    <script type="text/babel">
+       
+       //API
+        const courses = [
+    {
+      "id": 15,
+      "title": "HTML CSS Pro",
+      "slug": "htmlcss",
+      "description": "Từ cơ bản tới chuyên sâu, thực hành 8 dự án, hàng trăm bài tập, trang hỏi đáp riêng, cấp chứng chỉ sau khóa học và mua một lần học mãi mãi.",
+      "image_url": "https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png",
+      "icon_url": "https://files.fullstack.edu.vn/f8-prod/courses/15/62385d6c63dfa.png",
+      "price": 1299000,
+      "old_price": 2500000,
+      "pre_order_price": 699000,
+      "is_pro": true,
+      "is_published": true,
+      "is_selling": true,
+      "is_pre_order": false,
+      "is_coming_soon": false,
+      "students_count": 0,
+      "videos_count": 590,
+      "duration": 419594,
+      "duration_text": "116h33p",
+      "user_progress": 0,
+      "last_completed_at": null,
+      "landing_page_url": "/landing/htmlcss",
+      "published_at": "2022-08-18T17:00:00.000000Z"
+    },
+    {
+      "id": 27,
+      "title": "Ngôn ngữ Sass",
+      "slug": "sass",
+      "description": "Đây là một khóa học nhỏ được tách ra từ 2 chương học trong khóa HTML CSS Pro. Kiến thức về Sass trong khóa này bạn có thể áp dụng ngay vào các dự án của bạn.",
+      "image_url": "https://files.fullstack.edu.vn/f8-prod/courses/27/64e184ee5d7a2.png",
+      "icon_url": "https://files.fullstack.edu.vn/f8-prod/courses/27/64e0daf212fad.png",
+      "price": 299000,
+      "old_price": 400000,
+      "pre_order_price": 0,
+      "is_pro": true,
+      "is_published": true,
+      "is_selling": true,
+      "is_pre_order": false,
+      "is_coming_soon": false,
+      "students_count": 0,
+      "videos_count": 27,
+      "duration": 22690,
+      "duration_text": "6h18p",
+      "user_progress": 0,
+      "last_completed_at": null,
+      "landing_page_url": "/landing/sass",
+      "published_at": "2023-08-19T15:06:00.000000Z"
+    },
+    {
+      "id": 19,
+      "title": "JavaScript Pro",
+      "slug": "javascript",
+      "description": "Khóa học JavaScript Pro",
+      "image_url": "https://files.fullstack.edu.vn/f8-prod/courses/19/66aa28194b52b.png",
+      "icon_url": "https://files.fullstack.edu.vn/f8-prod/courses/19/62f13cb685c81.png",
+      "price": 1399000,
+      "old_price": 3299000,
+      "pre_order_price": 1199000,
+      "is_pro": true,
+      "is_published": true,
+      "is_selling": true,
+      "is_pre_order": false,
+      "is_coming_soon": false,
+      "students_count": 0,
+      "videos_count": 101,
+      "duration": 64326,
+      "duration_text": "17h52p",
+      "user_progress": 0,
+      "last_completed_at": null,
+      "landing_page_url": "/landing/javascript",
+      "published_at": "2024-08-08T17:00:00.000000Z"
+    }
+  ]
+
+       //Transformer
+       
+        const CourseItem  = ({ course }) => (
+            <div>
+              <h2>{course.title}</h2>
+              <img src={course.image_url} />
+              <p>{course.description}</p>
+              <p>{course.students_count}</p>
+            </div>
+        )
+  
+        function App(){
+            return(
+                <div id="wrapper">
+                    {courses.map(course => (
+                        <CourseItem
+                            key={course.id}
+                            // title={course.title}
+                            // image={course.image_url}
+                            // description={course.description}
+                            // studentsCount={course.students_count}
+
+                            course={course}
+                         />
+                    ))}
+                    
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
