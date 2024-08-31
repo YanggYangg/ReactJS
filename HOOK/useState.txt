@@ -1,0 +1,95 @@
+//Làm ứng dụng đếm số, nhấn vào button nó sẽ tăng lên 1 2 3 4 5
+import { useState } from 'react'
+
+const orders = [100, 200, 300]
+
+function App() {
+  //Tinh tong don hang
+
+  const [counter, setCounter] = useState(() => {
+    const total = orders.reduce((total, cur) => total + cur)
+
+  //Truyen callback vao useState
+
+  console.log(total);
+  return total;
+  })
+  
+
+  //const [counter, setCounter] = useState(total)
+
+  const handleIncrease = () => {
+    //setCounter(counter + 1)
+    setCounter(prevState => prevState + 1)
+  }
+
+  //console.log('render App')
+  return (
+    <div className="App" style={{padding: 20}}>
+      <h1>{counter}</h1>
+      <button onClick={handleIncrease}>Click</button>
+      
+    </div>
+  );
+}
+
+export default App;
+
+===================================
+
+//Làm ứng dụng đếm số, nhấn vào button nó sẽ tăng lên 1 2 3 4 5
+import { useState } from 'react'
+
+
+function App() {
+ 
+  const [info, setInfo] = useState({
+    name: "Nguyen Van A",
+    age: 20,
+    address: "Ha Noi"
+  })
+
+  const handleUpdate = () => {
+    setInfo({
+      ...info,
+      bio: 'I am a software engineer'
+    })
+  }
+
+ 
+  return (
+    <div className="App" style={{padding: 20}}>
+      //Comment: chuyển object thành chuỗi
+      <h1>{JSON.stringify(info)}</h1>
+      <button onClick={handleUpdate}>Update</button>
+      
+    </div>
+  );
+}
+
+export default App;
+
+====================================
+import { useState } from 'react';
+
+function App() {
+    const [cars, setCars] = useState(['Bugatti', 'Roll-Royce', 'Maybach']);
+    
+    const handleUpdate = () => {
+         setCars((prevState) => {
+              return [...prevState, 'Lamborghini']
+         })
+    }
+
+    console.log(cars) // Output: ?
+
+    return (
+        <div>
+            <h1>ReactJS</h1>
+            <button onClick={handleUpdate}>Update</button>
+        </div>
+    )
+}
+
+export default App;
+
