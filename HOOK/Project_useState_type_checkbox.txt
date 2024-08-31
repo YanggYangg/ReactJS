@@ -1,19 +1,5 @@
 import { useState } from 'react'
 
-//Lưu ý
-//1. Array
-//2. Reference types
-
-//Vd
-//1. Random gift
-//2. Two-way binding
-//3. Todolist
-
-// const gifts = [
-//   'CPU i9',//0
-//   'RAM 32GB RBG',//1
-//   'RBG Keyboard'//2
-// ]
 
 //Response from API
 const course = [
