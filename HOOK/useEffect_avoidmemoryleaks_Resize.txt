@@ -41,36 +41,28 @@ import { useEffect, useState } from "react";
     //
     //1.Callback luôn được gọi sau khi component mounted
     //2. Cleanup function luôn được gọi trước khi component unmounted
-    //3. Cleanup function luôn được gọi trước khi callback được gọi (trừ lần mounted)
 
-    //Cho phép chọn ảnh từ thư viện và hiển thị ảnh đó
+
+    
 function Content(){
-    const [avatar, setAvatar] = useState();
+    const [width, setWidth] = useState(window.innerWidth);//Chieu ngang cua man hinh
 
     useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', handleResize)
+
         //Cleanup function
         return () => {
-            avatar && URL.revokeObjectURL(avatar.preview);
+            window.removeEventListener('resize', handleResize);
         }
-    }, [avatar]);
+    }, []);
 
-   const handelPreviewAvatar = (e) => {
-    const file = e.target.files[0];
-
-    file.preview = URL.createObjectURL(file);
-
-    setAvatar(file);
-   }
     return (
         <div>
-            <input 
-            type="file"
-            onChange={handelPreviewAvatar}
-            />
-          {avatar && (
-            <img src={avatar.preview} alt="" width="80%" 
-            />
-          )}
+            <h1>{width}</h1>
+
         </div>
     )
 }
