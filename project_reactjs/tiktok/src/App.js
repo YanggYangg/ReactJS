@@ -1,4 +1,4 @@
-import { useState, useMemo, memo } from "react";
+import { useState, useMemo, memo, useRef } from "react";
 import Content from "./Content";
 
 //them san pham
@@ -8,11 +8,17 @@ function App() {
   const [price, setPrice] = useState('');
   const [products, setProducts] = useState([]);
 
+  const nameRef = useRef();
+
   const handleSubmit = () => {
     setProducts([...products, {
       name,
       price: +price
     }])
+    setName('');
+    setPrice('');
+
+    nameRef.current.focus();
   }
 
   const total = useMemo(() => {
@@ -27,6 +33,7 @@ function App() {
   return (
       <div style={{ padding: '10px 32px' }}>
         <input
+          ref={nameRef}
           value={name}
           placeholder="Enter name..."
           onChange={(e) => setName(e.target.value)}
