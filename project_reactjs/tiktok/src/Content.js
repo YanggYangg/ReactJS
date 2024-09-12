@@ -1,42 +1,11 @@
-import { useEffect, useLayoutEffect, useState } from "react";
 
-//useEffect 
-//1. Cập nhật lại state
-//2. Cập nhật DOM [mutated]
-//3. Render lại UI
-//4 .Gọi cleanup nếu deps thay đổi
-//5. Gọi useEffect callback 
-
-//useLayoutEffect
-//1. Cập nhật lại state
-//2. Cập nhât DOM [mutated]
-//3. Gọi cleanup nếu deps thay đổi (sync)
-//4. Gọi useLayoutEffect callback (sync)
-//5. Render lại UI
-
-
-
-function Content(){
-
-    const [count, setCount] = useState(0);
-
-    useLayoutEffect(() => {
-        if(count > 3)
-            setCount(0);
-    }, [count]);
-
-
-    const handleRun = () => {
-        //lon hon 3 thi ve 0
-        setCount(count + 1);
-    }
+import { memo } from 'react';
+function Content({ count }) {
+    console.log('re-render');
     return (
-        <div>
-            <h1>{count}</h1>
-            <button onClick={handleRun}>Run</button>
-          
-        </div>
+        <h2>HELLO ANH EM F8</h2>
     )
+
 }
 
-export default Content;
+export default memo(Content);
