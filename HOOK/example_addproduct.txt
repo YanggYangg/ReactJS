@@ -1,3 +1,6 @@
+EXAMPLE THÊM SẢN PHẨM 
+
+==========VER01==========
 import { useState, useMemo, memo } from "react";
 import Content from "./Content";
 
@@ -15,14 +18,10 @@ function App() {
     }])
   }
 
-  const total = useMemo(() => {
-    const result = products.reduce((result, prod) => {
-      console.log('Tinh toan lai ....')
-      return result + prod.price
-    },0)
-    return result;
-
-  },[products])
+  const total = products.reduce((result, prod) => {
+     console.log('Tinh toan lai ....')
+     return result + prod.price
+},0)
 
   return (
       <div style={{ padding: '10px 32px' }}>
@@ -57,3 +56,8 @@ function App() {
 }
 
 export default App;
+
+
+==========VER02==========
+
+
